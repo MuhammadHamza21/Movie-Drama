@@ -12,17 +12,17 @@ class TvDetails extends Equatable {
   final int episodeRunTime;
   final List<Genres> genres;
 
-  const TvDetails(
-    this.id,
-    this.title,
-    this.overview,
-    this.releaseDate,
-    this.voteAverage,
-    this.backdropPath,
-    this.numberOfSeasons,
-    this.episodeRunTime,
-    this.genres,
-  );
+  const TvDetails({
+    required this.id,
+    required this.title,
+    required this.overview,
+    required this.releaseDate,
+    required this.voteAverage,
+    required this.backdropPath,
+    required this.numberOfSeasons,
+    required this.episodeRunTime,
+    required this.genres,
+  });
 
   @override
   List<Object?> get props => [
