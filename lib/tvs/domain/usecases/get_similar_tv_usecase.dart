@@ -9,7 +9,7 @@ class GetSimilarTvUsecase
     extends BaseUsecase<List<SimilarTvs>, SimilarTvParameter> {
   final BaseTvRepository baseTvRepository;
 
-  GetSimilarTvUsecase(this.baseTvRepository);
+  GetSimilarTvUsecase({required this.baseTvRepository});
   @override
   Future<Either<Failure, List<SimilarTvs>>> call(
       SimilarTvParameter parameters) async {

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_drama/core/utils/app_constance.dart';
 import 'package:movie_drama/core/utils/enums.dart';
 import 'package:movie_drama/tvs/presentation/controller/tv_bloc/tv_bloc.dart';
+import 'package:movie_drama/tvs/presentation/screens/tv_details_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 class TopRatedTvComponent extends StatelessWidget {
@@ -33,12 +34,18 @@ class TopRatedTvComponent extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   itemCount: state.topRatedTv.length,
                   itemBuilder: (context, index) {
-                    final movie = state.topRatedTv[index];
+                    final tv = state.topRatedTv[index];
                     return Container(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: InkWell(
                         onTap: () {
                           /// TODO : NAVIGATE TO  TV DETAILS
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => TvDetailScreen(id: tv.id),
+                            ),
+                          );
                         },
                         child: ClipRRect(
                           borderRadius:
@@ -46,7 +53,7 @@ class TopRatedTvComponent extends StatelessWidget {
                           child: CachedNetworkImage(
                             width: 120.0,
                             fit: BoxFit.cover,
-                            imageUrl: AppConstance.imageUrl(movie.backdropPath),
+                            imageUrl: AppConstance.imageUrl(tv.backdropPath),
                             placeholder: (context, url) => Shimmer.fromColors(
                               baseColor: Colors.grey[850]!,
                               highlightColor: Colors.grey[800]!,

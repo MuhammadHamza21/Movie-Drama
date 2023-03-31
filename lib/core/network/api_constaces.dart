@@ -13,4 +13,8 @@ class ApiConstances {
   static String movieDetails(int id) => "$baseUrl/movie/$id?api_key=$apiKey";
   static String recommendationMovies(int id) =>
       "$baseUrl/movie/$id/recommendations?api_key=$apiKey";
+  static String tvDetailsPath(int movieId) =>
+      "$baseUrl/tv/$movieId?api_key=$apiKey";
+  static String tvSimilarPath(int movieId) =>
+      "$baseUrl/tv/$movieId/similar?api_key=$apiKey";
 }

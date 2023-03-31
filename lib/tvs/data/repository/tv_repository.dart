@@ -59,14 +59,22 @@ class TvRepository extends BaseTvRepository {
   @override
   Future<Either<Failure, List<SimilarTvs>>> getSimilarTvs(
       SimilarTvParameter tvSimilarParameter) async {
-    // TODO: implement getSimilarTvs
-    throw UnimplementedError();
+    var result = await baseTvRemoteDataSource.getSimilarTvs(tvSimilarParameter);
+    try {
+      return Right(result);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.errorMessageModel.statusMessage));
+    }
   }
 
   @override
   Future<Either<Failure, TvDetails>> getTvDetails(
-      TvDetailsParameter tvDetailsParameter) {
-    // TODO: implement getTvDetails
-    throw UnimplementedError();
+      TvDetailsParameter tvDetailsParameter) async {
+    var result = await baseTvRemoteDataSource.getTvDetails(tvDetailsParameter);
+    try {
+      return Right(result);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.errorMessageModel.statusMessage));
+    }
   }
 }

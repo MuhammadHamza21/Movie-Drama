@@ -9,7 +9,7 @@ class TvDetails extends Equatable {
   final double voteAverage;
   final String backdropPath;
   final int numberOfSeasons;
-  final int episodeRunTime;
+  final List<dynamic> episodeRunTime;
   final List<Genres> genres;
 
   const TvDetails({

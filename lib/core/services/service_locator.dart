@@ -15,8 +15,11 @@ import 'package:movie_drama/tvs/data/repository/tv_repository.dart';
 import 'package:movie_drama/tvs/domain/repository/base_tv_repository.dart';
 import 'package:movie_drama/tvs/domain/usecases/get_on_the_air_usecase.dart';
 import 'package:movie_drama/tvs/domain/usecases/get_popular_tv_usecase.dart';
+import 'package:movie_drama/tvs/domain/usecases/get_similar_tv_usecase.dart';
 import 'package:movie_drama/tvs/domain/usecases/get_top_rated_tv_usecase.dart';
+import 'package:movie_drama/tvs/domain/usecases/get_tv_details_usecase.dart';
 import 'package:movie_drama/tvs/presentation/controller/tv_bloc/tv_bloc.dart';
+import 'package:movie_drama/tvs/presentation/controller/tv_details_bloc/tv_details_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -44,11 +47,14 @@ class ServiceLocator {
     sl.registerLazySingleton(() => GetPopularTvUsecase(baseTvRepository: sl()));
     sl.registerLazySingleton(
         () => GetTopRatedTvUsecase(baseTvRepository: sl()));
+    sl.registerLazySingleton(() => GetTvDetailsUsecase(baseTvRepository: sl()));
+    sl.registerLazySingleton(() => GetSimilarTvUsecase(baseTvRepository: sl()));
 
     /// Bloc
     sl.registerFactory(() => MoviesBloc(sl(), sl(), sl()));
     sl.registerFactory(() => MovieDetailsBloc(sl(), sl()));
     sl.registerFactory(() => TvBloc(sl(), sl(), sl()));
+    sl.registerFactory(() => TvDetailsBloc(sl(), sl()));
     sl.registerFactory(() => MainAppBloc());
   }
 }

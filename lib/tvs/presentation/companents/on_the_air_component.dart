@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_drama/core/utils/app_constance.dart';
 import 'package:movie_drama/core/utils/enums.dart';
 import 'package:movie_drama/tvs/presentation/controller/tv_bloc/tv_bloc.dart';
+import 'package:movie_drama/tvs/presentation/screens/tv_details_screen.dart';
 
 class OnTheAirComponent extends StatelessWidget {
   const OnTheAirComponent({super.key});
@@ -37,6 +38,12 @@ class OnTheAirComponent extends StatelessWidget {
                       key: const Key('openTVMinimalDetail'),
                       onTap: () {
                         /// TODO : NAVIGATE TO TV DETAILS
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => TvDetailScreen(id: item.id),
+                          ),
+                        );
                       },
                       child: Stack(
                         children: [

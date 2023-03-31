@@ -4,6 +4,7 @@ import 'package:movie_drama/core/services/service_locator.dart';
 import 'package:movie_drama/core/utils/enums.dart';
 import 'package:movie_drama/core/widgets/movie_details_component.dart';
 import 'package:movie_drama/tvs/presentation/controller/tv_bloc/tv_bloc.dart';
+import 'package:movie_drama/tvs/presentation/screens/tv_details_screen.dart';
 
 class TopRatedTvScreen extends StatelessWidget {
   const TopRatedTvScreen({super.key});
@@ -32,7 +33,14 @@ class TopRatedTvScreen extends StatelessWidget {
                     var tv = state.topRatedTv[index];
                     return MovieDetailsComponent(
                       movie: tv,
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => TvDetailScreen(id: tv.id),
+                          ),
+                        );
+                      },
                     );
                   },
                 );

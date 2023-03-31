@@ -22,7 +22,7 @@ class TvDetailsModel extends TvDetails {
         voteAverage: json["vote_average"],
         backdropPath: json["backdrop_path"],
         numberOfSeasons: json["number_of_seasons"],
-        episodeRunTime: json["episode_run_time"][0],
+        episodeRunTime: json["episode_run_time"],
         genres: List<GenresModel>.from(
           json["genres"].map(
             (x) => GenresModel.fromJson(x),
