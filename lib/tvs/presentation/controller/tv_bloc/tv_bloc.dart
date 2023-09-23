@@ -6,8 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:movie_drama/core/usecase/base_usecase.dart';
 import 'package:movie_drama/core/utils/enums.dart';
-import 'package:movie_drama/tvs/domain/entities/similar_tv.dart';
-import 'package:movie_drama/tvs/domain/entities/tv_details.dart';
 import 'package:movie_drama/tvs/domain/entities/tv_entity.dart';
 import 'package:movie_drama/tvs/domain/usecases/get_on_the_air_usecase.dart';
 import 'package:movie_drama/tvs/domain/usecases/get_popular_tv_usecase.dart';

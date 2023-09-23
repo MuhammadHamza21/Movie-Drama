@@ -1,6 +1,6 @@
 class ApiConstances {
   static const String baseUrl = "https://api.themoviedb.org/3";
-  static const String apiKey = "5dc65eac272706116b31bfe7b3c91cc3";
+  static const String apiKey = "d9e05128b7bd29f3e8eaa32958c5cd91";
   static const String nowPlayingMoviesPath =
       "$baseUrl/movie/now_playing?api_key=$apiKey";
   static const String popularMoviesPath =
